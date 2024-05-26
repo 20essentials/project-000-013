@@ -1,0 +1,167 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.myAside {
+  position: fixed;
+  background-color: black;
+  inset: 0;
+  z-index: 999;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  
+
+  .item {
+    all: initial;
+    display: flex;
+    align-items: center;
+    padding: .7rem;
+    color: white;
+    user-select: none;
+    transition: 1s;
+  }
+
+  .item::before,
+  .item::after {
+    content: '';
+    padding: 1px;
+    margin: 5px;
+    flex: 1;
+    height: 2px;
+  }
+
+  .item:nth-child(odd) {
+    box-shadow: inset 4px 4px 5px #00ff00dd, inset -4px -4px 5px #00ff00dd;
+  }
+  .item:nth-child(even) {
+    box-shadow: inset 4px 4px 5px #ba55d3dd, inset -4px -4px 5px #ba55d3dd;
+  }
+
+  .item:nth-child(even)::before,
+  .item:nth-child(even)::after  {
+    background-color: #ba55d3dd;
+  }
+  .item:nth-child(odd)::before,
+  .item:nth-child(odd)::after {
+    background-color: #00ff00dd;
+  }
+
+  .item:hover {
+    transition: 0s;
+    box-shadow: inset 4px 4px 5px cyan, inset -4px -4px 5px cyan;
+    
+    &::before,
+    &::after {
+      background-color: cyan ;
+    }
+  }
+}
+
+.modal{
+  position: absolute;
+  background-color: #fff1;
+  backdrop-filter: blur(5px);
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  padding: 5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .equis {
+    font-size: 3rem;
+    position: absolute;
+    z-index: 1000;
+    font-weight: 900;
+    
+    padding: 0;
+    margin: 0;
+    display: block;
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    transition: .1s;
+    user-select: none;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.desaparecer {
+  display: none;
+  animation: desaparecer 1s ease 1 both;
+}
+.aparecer {
+  display: flex;
+  animation: aparecer 1s ease 1 both;
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes desaparecer {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (width <= 1000px) and (orientation: landscape) {
+  .myAside {
+    place-content: center;
+  }
+  .modal {
+    padding: 2rem;
+  }
+}
+
+@media (width <= 1000px) and (orientation: portrait) {
+  .myAside {
+    place-content: center;
+    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+
+    .item {
+      place-content: center;
+    }
+
+    .item::before,
+    .item::after {
+      display: none;
+    }
+    
+  }
+
+  .modal {
+    padding: 2.5rem;
+  }
+}
