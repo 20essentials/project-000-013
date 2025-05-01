@@ -17,13 +17,12 @@ html {
   padding: 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-  
 
   .item {
     all: initial;
     display: flex;
     align-items: center;
-    padding: .7rem;
+    padding: 0.7rem;
     color: white;
     user-select: none;
     transition: 1s;
@@ -46,7 +45,7 @@ html {
   }
 
   .item:nth-child(even)::before,
-  .item:nth-child(even)::after  {
+  .item:nth-child(even)::after {
     background-color: #ba55d3dd;
   }
   .item:nth-child(odd)::before,
@@ -57,15 +56,15 @@ html {
   .item:hover {
     transition: 0s;
     box-shadow: inset 4px 4px 5px cyan, inset -4px -4px 5px cyan;
-    
+
     &::before,
     &::after {
-      background-color: cyan ;
+      background-color: cyan;
     }
   }
 }
 
-.modal{
+.modal {
   position: absolute;
   background-color: #fff1;
   backdrop-filter: blur(5px);
@@ -88,7 +87,7 @@ html {
     position: absolute;
     z-index: 1000;
     font-weight: 900;
-    
+
     padding: 0;
     margin: 0;
     display: block;
@@ -96,7 +95,7 @@ html {
     top: 1rem;
     right: 1rem;
     color: white;
-    transition: .1s;
+    transition: 0.1s;
     user-select: none;
 
     &:hover {
@@ -158,7 +157,6 @@ html {
     .item::after {
       display: none;
     }
-    
   }
 
   .modal {
